@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Model\Category;
 
 $factory->define(App\Model\Question::class, function (Faker $faker) {
     $title = $faker->sentence;
@@ -12,7 +13,7 @@ $factory->define(App\Model\Question::class, function (Faker $faker) {
             return Category::all()->random();
         },
         'user_id'=> function(){
-            return User::all()->random();
+            return \App\User::all()->random();
         }
     ];
 });
